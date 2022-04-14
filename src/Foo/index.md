@@ -5,7 +5,7 @@ Demo:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'ljmui';
+import { Foo } from 'ljmui2';
 
 export default () => <Foo title="First Demo" />;
 ```

@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "name": "ljmui",
+  "name": "ljmui2",
   "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",
@@ -26,7 +25,13 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "files": [
+    "docs",
+    "es",
+    "src"
+  ],
   "dependencies": {
+    "antd-mobile": "^5.10.2",
     "react": "^16.12.0 || ^17.0.0"
   },
   "devDependencies": {
