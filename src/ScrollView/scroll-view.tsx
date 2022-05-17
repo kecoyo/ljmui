@@ -3,7 +3,7 @@ import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
 import { NativeProps, withNativeProps } from 'antd-mobile/es/utils/native-props';
 import classNames from 'classnames';
 
-const classPrefix = `ljmui-foo`;
+const classPrefix = `ljmui2-scroll-view`;
 
 const colorRecord: Record<string, string> = {
   default: '#666666',
@@ -13,7 +13,7 @@ const colorRecord: Record<string, string> = {
   danger: 'var(--adm-color-danger, #ff3141)',
 };
 
-export type FooProps = {
+export type ScrollViewProps = {
   color?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | (string & {});
   fill?: 'solid' | 'outline';
   round?: boolean;
@@ -26,7 +26,7 @@ const defaultProps = {
   round: false,
 };
 
-export const Foo: FC<FooProps> = (p) => {
+export const ScrollView: FC<ScrollViewProps> = (p) => {
   const props = mergeProps(defaultProps, p);
   const color = colorRecord[props.color] ?? props.color;
 
