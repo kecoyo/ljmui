@@ -1,71 +1,47 @@
-import React from 'react';
-import { Space } from 'antd-mobile';
+import React, { useRef, useState, useCallback } from 'react';
+import { Button, Space } from 'antd-mobile';
 import { DemoBlock } from '../../demos';
 import { ListView } from 'ljmui2';
+import { useMount, useMemoizedFn } from 'ahooks';
 
+const ajaxGet = (page: number) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let pageSize = 20;
+      if (page < 4) {
+        let start = (page - 1) * pageSize;
+        let news = [];
+        for (let i = 0; i < pageSize; i++) {
+          news.push({ id: start + i, name: 'name-' + (start + i) });
+        }
+        resolve(news);
+      } else {
+        resolve([]);
+      }
+    }, 2000);
+  });
+};
+
+// list, page, hasMore, onLoad, startY, onScroll
 export default () => {
+  const loadMore = useMemoizedFn(async (page: number) => {
+    const curList = await ajaxGet(page);
+    console.log('🚀 ~ loadMore ~ curList', page, curList);
+    return curList;
+  });
+
+  const renderItem = (item: any, index: any) => {
+    return (
+      <div key={index} style={{ height: 30 }}>
+        {item.name}
+      </div>
+    );
+  };
+
   return (
     <>
-      <DemoBlock title="基本用法">
-        <ListView>123</ListView>
-      </DemoBlock>
-
-      <DemoBlock title="默认提供 5 种通用标签颜色">
-        <Space>
-          <ListView color="default">Default</ListView>
-          <ListView color="primary">测试</ListView>
-          <ListView color="success">Success</ListView>
-          <ListView color="warning">Warning</ListView>
-          <ListView color="danger">Danger</ListView>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title="自定义颜色">
-        <Space>
-          <ListView color="#2db7f5">#2db7f5</ListView>
-          <ListView color="#87d068">#87d068</ListView>
-          <ListView color="#108ee9">#108ee9</ListView>
-        </Space>
-      </DemoBlock>
-      <DemoBlock title="线框填充">
-        <Space>
-          <ListView color="primary" fill="outline">
-            Primary
-          </ListView>
-          <ListView color="#87d068" fill="outline">
-            #87d068
-          </ListView>
-          <ListView color="#ff6430" fill="outline">
-            #ff6430
-          </ListView>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title="圆角">
-        <ListView round color="#2db7f5">
-          kongxin
-        </ListView>
-      </DemoBlock>
-
-      <DemoBlock title="通过 CSS 变量进行个性化">
-        <Space>
-          <ListView color="primary" fill="outline" style={{ '--border-radius': '6px' }}>
-            Primary
-          </ListView>
-          <ListView color="success" fill="outline" style={{ '--background-color': '#c8f7c5' }}>
-            Success
-          </ListView>
-          <ListView color="warning" style={{ '--text-color': 'var(--adm-color-text)' }}>
-            Warning
-          </ListView>
-          <ListView
-            color="danger"
-            fill="outline"
-            style={{ '--border-color': 'var(--adm-color-weak)' }}
-          >
-            Danger
-          </ListView>
-        </Space>
+      <DemoBlock title="">
+        <ListView pageStart={0} initialLoad={false} renderItem={renderItem} loadMore={loadMore} />
       </DemoBlock>
     </>
   );

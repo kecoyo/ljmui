@@ -1,19 +1,50 @@
 @class-prefix: ~'ljmui2-scroll-view';
 
 .@{class-prefix} {
-  --border-radius: var(--adm-tag-border-radius, 2px);
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 2px 4px;
-  color: var(--text-color);
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 1;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.@{class-prefix}-vertical {
+  flex: 1;
+  height: 400px;
+
+  .@{class-prefix}-content {
+    width: 100%;
+  }
+
+  .@{class-prefix}-pulldown-wrapper {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    color: #999;
+    text-align: center;
+    transform: translateY(-100%) translateZ(0);
+  }
+
+  .@{class-prefix}-pullup-wrapper {
+    padding: 20px;
+    color: #999;
+    text-align: center;
+  }
+
+  .@{class-prefix}-loading-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .@{class-prefix}-empty-wrapper {
+    padding: 20px;
+  }
+}
+
+.@{class-prefix}-horizontal {
+  width: 100%;
   white-space: nowrap;
-  background: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  &-round {
-    border-radius: 100px;
+
+  .@{class-prefix}-content {
+    display: inline-block;
   }
 }
