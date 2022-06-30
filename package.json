@@ -1,6 +1,6 @@
 {
   "name": "ljmui2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -31,8 +31,8 @@
     "src"
   ],
   "dependencies": {
-    "antd-mobile": "^5.10.2",
-    "antd-mobile-icons": "^0.2.2",
+    "antd-mobile": "^5.16.1",
+    "antd-mobile-icons": "^0.3.0",
     "better-scroll": "^2.4.2",
     "react": "^16.12.0 || ^17.0.0"
   },
@@ -42,7 +42,7 @@
     "@types/jest": "^27.0.3",
     "@umijs/fabric": "^2.8.1",
     "@umijs/test": "^3.0.5",
-    "dumi": "^1.1.0",
+    "dumi": "^1.1.42",
     "father-build": "^1.17.2",
     "gh-pages": "^3.0.0",
     "lint-staged": "^10.0.7",
