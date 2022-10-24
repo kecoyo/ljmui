@@ -6,7 +6,6 @@
     "build": "gulp",
     "build-doc": "dumi build && echo '!.*' > dist/.surgeignore",
     "lint": "eslint .",
-    "postinstall": "husky install",
     "pub": "npm publish ./lib",
     "pub:alpha": "npm publish ./lib --tag alpha",
     "pub:dev": "npm publish ./lib --tag dev"
