@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
-import { ActionSheet, Button, Dialog, Space, Toast } from 'antd-mobile'
+import { Button, Dialog, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import { ActionSheet} from 'ljmui2'
 import type {
   Action,
   ActionSheetShowHandler,
