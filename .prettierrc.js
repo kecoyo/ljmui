@@ -1,5 +1,6 @@
 module.exports = {
-  semi: false,
+  printWidth: 150,
+  semi: true,
   trailingComma: 'es5',
   tabWidth: 2,
   singleQuote: true,
@@ -10,10 +11,10 @@ module.exports = {
   proseWrap: 'preserve',
   overrides: [
     {
-      'files': ['*.md'],
-      'options': {
+      files: ['*.md'],
+      options: {
         embeddedLanguageFormatting: 'off',
       },
     },
   ],
-}
+};
