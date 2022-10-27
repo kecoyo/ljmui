@@ -4,8 +4,7 @@ import { Action } from 'antd-mobile/es/components/modal/modal-action-button';
 import AdmModal, { ModalProps } from 'antd-mobile/es/components/modal';
 import { useUpdateEffect } from 'ahooks';
 import Event from '../event';
-
-export const EVENT_MODAL_CLOSE = 'event-modal-close';
+import { EVENT_POPUP_CLOSE } from '../popup/popup';
 
 const defaultProps = {
   actions: [] as Action[],
@@ -20,9 +19,9 @@ export const Modal: FC<ModalProps> = p => {
   useUpdateEffect(() => {
     if (props.onClose) {
       if (props.visible) {
-        Event.addListener(EVENT_MODAL_CLOSE, props.onClose);
+        Event.addListener(EVENT_POPUP_CLOSE, props.onClose);
       } else {
-        Event.removeListener(EVENT_MODAL_CLOSE, props.onClose);
+        Event.removeListener(EVENT_POPUP_CLOSE, props.onClose);
       }
     }
   }, [props.visible]);
