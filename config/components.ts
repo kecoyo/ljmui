@@ -1,5 +1,8 @@
 export const components = {
   common: [
-    '/components/action-sheet',
+    '/components/event',
+    '/components/popup',
+    '/components/modal',
+    '/components/dialog',
   ],
 }

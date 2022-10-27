@@ -15,8 +15,7 @@ const config: IConfig = {
   mode: 'site',
   title: 'ljmui2',
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/b874caa9-4458-412a-9ac6-a61486180a62.svg',
-  favicon:
-    'https://gw.alipayobjects.com/zos/bmw-prod/69a27fcc-ce52-4f27-83f1-c44541e9b65d.svg',
+  favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/69a27fcc-ce52-4f27-83f1-c44541e9b65d.svg',
   outputPath: 'docs-dist',
   navs,
   menus,
@@ -25,6 +24,8 @@ const config: IConfig = {
     passivePreview: true,
   },
   alias: {
+    'ljmui2': process.cwd() + '/src',
+    'ljmui2/src': process.cwd() + '/src',
     'ljmui2/es': process.cwd() + '/src',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
