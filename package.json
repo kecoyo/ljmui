@@ -11,9 +11,13 @@
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
   "typings": "./es/index.d.ts",
+  "unpkg": "./umd/ljmui2.js",
+  "GravityCDN": "./umd/ljmui2.js",
   "files": [
     "./cjs",
-    "./es"
+    "./es",
+    "./umd",
+    "./bundle"
   ],
   "dependencies": {
     "ahooks": "^3.7.0",
