@@ -5,5 +5,6 @@ export const components = {
     '/components/modal',
     '/components/dialog',
     '/components/icon',
+    '/components/web-view',
   ],
 }

@@ -69,7 +69,7 @@ function buildES() {
     module: 'ES6',
   });
   return gulp
-    .src(['src/**/*.{ts,tsx}'], {
+    .src(['src/**/*.{js,jsx,ts,tsx}'], {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
@@ -250,7 +250,7 @@ exports.default = gulp.series(
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
-  buildBundles,
-  umdWebpack,
-  copyUmd
+  // buildBundles,
+  // umdWebpack,
+  // copyUmd
 );
