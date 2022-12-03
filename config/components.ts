@@ -4,5 +4,6 @@ export const components = {
     '/components/popup',
     '/components/modal',
     '/components/dialog',
+    '/components/icon',
   ],
 }

@@ -8,6 +8,7 @@ const classPrefix = `ljm-icon`;
 type BrowserSpriteSymbol = {
   id: string;
   viewBox: string;
+  default?: BrowserSpriteSymbol;
 };
 
 export type IconRef = {
@@ -25,7 +26,7 @@ const defaultProps = {};
 export const Icon = forwardRef<IconRef, IconProps>((p, ref) => {
   const props = mergeProps(defaultProps, p);
   const nativeSVGRef = useRef<SVGSVGElement>(null);
-  const obj: BrowserSpriteSymbol = props.src || { id: '', viewBox: '' };
+  const obj: BrowserSpriteSymbol = props.src?.default ? props.src.default : props.src ? props.src : { id: '', viewBox: '' };
 
   const style: IconProps['style'] = {};
   if (props.width) {
