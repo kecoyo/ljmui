@@ -4,13 +4,13 @@ import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
 
-const demoSrc = 'https://www.ljlx.com';
+const url = 'https://www.ljlx.com';
 
 export default () => {
   return (
     <div style={{ userSelect: 'none' }}>
       <DemoBlock title='基础用法'>
-        <WebView src={demoSrc} />
+        <WebView className={styles.webView} src={url} />
       </DemoBlock>
     </div>
   );
