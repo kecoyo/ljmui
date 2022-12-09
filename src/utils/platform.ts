@@ -13,3 +13,5 @@ export function isMobile() {
 export function isWindows() {
   return /(Win)/i.test(navigator.userAgent) || /(Win)/i.test(navigator.platform);
 }
+
+export const Platform = { isIPhone, isAndroid, isMobile, isWindows };
