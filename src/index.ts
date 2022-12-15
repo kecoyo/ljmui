@@ -11,6 +11,9 @@ export { default as Page } from './components/page';
 export { default as WebView } from './components/web-view';
 export { default as WebViewPage } from './components/web-view-page';
 export { default as ScrollView } from './components/scroll-view';
+export type { ScrollViewRef } from './components/scroll-view';
 export { default as TabsPage } from './components/tabs-page';
+export { default as ListView } from './components/list-view';
+export type { ListViewRef } from './components/list-view';
 
 export * from './utils';

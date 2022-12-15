@@ -1,9 +1,9 @@
 import React, { ReactNode, forwardRef, useRef, useState, useImperativeHandle, useEffect } from 'react';
 import classNames from 'classnames';
-import { SpinLoading, DotLoading, ErrorBlock, Skeleton } from 'antd-mobile';
+import { SpinLoading, DotLoading, ErrorBlock, AutoCenter } from 'antd-mobile';
 import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
 import { NativeProps, withNativeProps } from 'antd-mobile/es/utils/native-props';
-import { useMount, useMemoizedFn, useUnmount } from 'ahooks';
+import { useMount, useMemoizedFn, useUnmount, useUpdateEffect } from 'ahooks';
 import BScroll, { Options } from 'better-scroll';
 
 const classPrefix = `ljm-scroll-view`;
@@ -18,16 +18,22 @@ export type ScrollViewRef = {
 
 export type ScrollViewProps = {
   direction?: 'vertical' | 'horizontal';
+  startX?: number;
+  startY?: number;
   onScroll?: (e: { x: number; y: number }) => void;
   onPullDownRefresh?: () => void;
   onPullUpLoad?: () => void;
   hasMore?: boolean;
+  loading?: boolean;
+  isEmpty?: boolean;
   children: ReactNode;
 } & Options &
   NativeProps;
 
 const defaultProps = {
   direction: 'vertical',
+  startX: 0,
+  startY: 0,
   pullDownRefresh: {
     threshold: 60,
     stop: 40,
@@ -47,6 +53,8 @@ export const ScrollView = forwardRef<ScrollViewRef, ScrollViewProps>((p, ref) =>
   const [isPullingDown, setIsPullingDown] = useState(false);
   const [isPullUpLoad, setIsPullUpLoad] = useState(false);
   const [showPullupWrapper, setShowPullupWrapper] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startY, setStartY] = useState(0);
 
   // 检测是否可以下拉
   const checkPullDown = useMemoizedFn(() => {
@@ -72,6 +80,8 @@ export const ScrollView = forwardRef<ScrollViewRef, ScrollViewProps>((p, ref) =>
         onPullDownRefresh,
         pullUpLoad,
         onPullUpLoad,
+        loading,
+        isEmpty,
         ...scrollOptions
       } = props;
 
@@ -158,14 +168,29 @@ export const ScrollView = forwardRef<ScrollViewRef, ScrollViewProps>((p, ref) =>
     },
   }));
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     // 设置pullUpLoad时，滚动区小于容器区时，不显示PullupWrapper
-    if (bscroll && props.onPullUpLoad) {
-      if (bscroll.scrollerHeight > bscroll.scroller.wrapper.offsetHeight) {
-        setShowPullupWrapper(true);
-      }
+    if (bscroll && props.onPullUpLoad && bscroll.scrollerHeight > bscroll.scroller.wrapper.offsetHeight) {
+      setShowPullupWrapper(true);
     }
   });
+
+  useUpdateEffect(() => {
+    if (props.startX && !startX) {
+      const scrollX = props.startX;
+      setStartX(scrollX);
+      setTimeout(() => {
+        bscroll?.scrollTo(scrollX, 0);
+      }, 100);
+    }
+    if (props.startY && !startY) {
+      const scrollY = props.startY;
+      setStartY(scrollY);
+      setTimeout(() => {
+        bscroll?.scrollTo(0, scrollY);
+      }, 100);
+    }
+  }, [props.startX, props.startY]);
 
   return withNativeProps(
     props,
@@ -177,7 +202,17 @@ export const ScrollView = forwardRef<ScrollViewRef, ScrollViewProps>((p, ref) =>
           </div>
         )}
 
-        <div className={`${classPrefix}-content-wrapper`}>{props.children}</div>
+        {props.loading ? (
+          <div className={`${classPrefix}-loading-wrapper`}>
+            <DotLoading color='primary' />
+          </div>
+        ) : props.isEmpty ? (
+          <div className={`${classPrefix}-empty-wrapper`}>
+            <ErrorBlock status='empty' />
+          </div>
+        ) : (
+          <div className={`${classPrefix}-content-wrapper`}>{props.children}</div>
+        )}
 
         {!!props.onPullUpLoad && showPullupWrapper && (
           <div className={`${classPrefix}-pullup-wrapper`}>

@@ -1,14 +1,14 @@
-# ScrollView 网页视图
+# ScrollView 滚动视图
 
 可以内嵌在移动端，实现前端的混合式开发，大多数混合式开发框架都是基于 ScrollView 模式进行二次开发的。
 
 ## 示例
 
-<code src="./demos/demo1.tsx"></code>
+<!-- <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
 
-<code src="./demos/demo3.tsx"></code>
+<code src="./demos/demo3.tsx"></code> -->
 
 <code src="./demos/demo4.tsx"></code>
 

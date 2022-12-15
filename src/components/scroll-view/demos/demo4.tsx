@@ -6,7 +6,7 @@ import { useMemoizedFn, useMount } from 'ahooks';
 import styles from './demo1.less';
 
 const pageSize = 20;
-const maxPage = 3;
+const maxPage = 1;
 
 const getList = (page: number) => {
   return new Promise<Array<any>>(resolve => {
@@ -27,14 +27,15 @@ const getList = (page: number) => {
 
 export default () => {
   const ref = useRef<ScrollViewRef>(null);
-  const [{ list, page, hasMore }, setListData] = useState({
+  const [{ loading, list, page, hasMore }, setListData] = useState({
+    loading: true,
     list: new Array<any>(),
     page: 0,
     hasMore: false,
   });
 
   useMount(async () => {
-    // await onPullDownRefresh();
+    await onPullDownRefresh();
   });
 
   const onPullDownRefresh = useMemoizedFn(async () => {
@@ -42,6 +43,7 @@ export default () => {
     const curList = await getList(curPage);
     console.log('🚀 ~ onPullDownRefresh ~ curList', curList);
     setListData({
+      loading: false,
       list: curList,
       page: curPage,
       hasMore: curList.length > 0,
@@ -53,6 +55,7 @@ export default () => {
     const curList = await getList(curPage);
     console.log('🚀 ~ onPullUpLoad ~ curList', curList);
     setListData({
+      loading: false,
       list: [...list, ...curList],
       page: curPage,
       hasMore: curList.length > 0,
@@ -73,6 +76,8 @@ export default () => {
           onPullDownRefresh={onPullDownRefresh}
           onPullUpLoad={onPullUpLoad}
           hasMore={hasMore}
+          loading={loading}
+          isEmpty={list.length === 0}
         >
           {list.map((item, i) => (
             <div key={i} className={styles.item}>

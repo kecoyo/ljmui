@@ -6,9 +6,10 @@ export const components = {
     '/components/dialog',
     '/components/icon',
     '/components/page',
+    '/components/tabs-page',
     '/components/web-view',
     '/components/web-view-page',
     '/components/scroll-view',
-    '/components/tabs-page',
+    '/components/list-view',
   ],
 };
