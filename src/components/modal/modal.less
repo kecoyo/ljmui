@@ -56,27 +56,33 @@
   color: var(--adm-color-text);
 }
 
-.adm-modal-footer {
+.@{class-prefix-modal}-footer {
   user-select: none;
-  padding: 8px 12px 12px;
+  padding: 0;
+
   &-empty {
     padding: 0;
     height: 8px;
   }
-  &.adm-space {
-    --gap-vertical: 20px;
-  }
-  .adm-modal-button {
-    font-size: var(--adm-font-size-10);
-    line-height: 25px;
-    &:not(.adm-modal-button-primary) {
-      padding-top: 0;
-      padding-bottom: 0;
-      &::before {
-        display: none;
+
+  .adm-modal-action-row {
+    display: flex;
+    align-items: stretch;
+    border-top: 0.5px solid var(--adm-color-border);
+    > * {
+      flex: 1;
+    }
+    > .adm-modal-button {
+      padding: 10px;
+      font-size: var(--adm-font-size-10);
+      line-height: 25px;
+      border-radius: 0;
+      &-bold {
+        font-weight: bold;
       }
-      &:active {
-        opacity: 0.7;
+      border-right: solid 0.5px var(--adm-color-border);
+      &:last-child {
+        border-right: none;
       }
     }
   }

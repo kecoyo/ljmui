@@ -27,7 +27,7 @@ export type ModalProps = Pick<
   header?: ReactNode;
   title?: ReactNode;
   content?: ReactNode;
-  actions?: Action[];
+  actions?: (Action | Action[])[];
   onAction?: (action: Action, index: number) => void | Promise<void>;
   onClose?: () => void;
   closeOnAction?: boolean;
@@ -58,22 +58,27 @@ export const Modal: FC<ModalProps> = p => {
       )}
       {!!props.title && <div className={cls('title')}>{props.title}</div>}
       <div className={cls('content')}>{typeof props.content === 'string' ? <AutoCenter>{props.content}</AutoCenter> : props.content}</div>
-      <Space direction='vertical' block className={classNames(cls('footer'), props.actions.length === 0 && cls('footer-empty'))}>
-        {props.actions.map((action, index) => {
+      <div className={classNames(cls('footer'), props.actions.length === 0 && cls('footer-empty'))}>
+        {props.actions.map((row, index) => {
+          const actions = Array.isArray(row) ? row : [row];
           return (
-            <ModalActionButton
-              key={action.key}
-              action={action}
-              onAction={async () => {
-                await Promise.all([action.onClick?.(), props.onAction?.(action, index)]);
-                if (props.closeOnAction) {
-                  props.onClose?.();
-                }
-              }}
-            />
+            <div className={cls('action-row')} key={index}>
+              {actions.map((action, index) => (
+                <ModalActionButton
+                  key={action.key}
+                  action={action}
+                  onAction={async () => {
+                    await Promise.all([action.onClick?.(), props.onAction?.(action, index)]);
+                    if (props.closeOnAction) {
+                      props.onClose?.();
+                    }
+                  }}
+                />
+              ))}
+            </div>
           );
         })}
-      </Space>
+      </div>
     </>
   );
 
