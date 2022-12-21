@@ -8,7 +8,7 @@ export default () => {
   return (
     <div style={{ userSelect: 'none' }}>
       <DemoBlock title='基础用法'>
-        <TabsPage className={styles.pageTabs} style={{ '--content-padding': 30 }}>
+        <TabsPage className={styles.tabsPage} style={{ '--tab-content-padding': '30px' }}>
           <TabsPage.Tab title='原卷' key='origin'>
             <input />
           </TabsPage.Tab>

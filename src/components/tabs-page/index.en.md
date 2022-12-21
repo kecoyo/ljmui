@@ -1,12 +1,12 @@
-# PageTabs 网页视图
+# TabsPage 网页视图
 
-可以内嵌在移动端，实现前端的混合式开发，大多数混合式开发框架都是基于 PageTabs 模式进行二次开发的。
+可以内嵌在移动端，实现前端的混合式开发，大多数混合式开发框架都是基于 TabsPage 模式进行二次开发的。
 
 ## 示例
 
 <code src="./demos/demo1.tsx"></code>
 
-## PageTabs
+## TabsPage
 
 ### 属性
 

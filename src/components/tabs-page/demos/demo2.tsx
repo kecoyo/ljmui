@@ -7,8 +7,8 @@ import styles from './demo1.less';
 export default () => {
   return (
     <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='基础用法'>
-        <TabsPage className={styles.pageTabs} color='primary'>
+      <DemoBlock title='更换主题'>
+        <TabsPage className={styles.tabsPage} color='primary'>
           <TabsPage.Tab title='原卷' key='origin'>
             <input />
           </TabsPage.Tab>
