@@ -6,8 +6,6 @@ import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
 
-const demoSrc = 'https://www.ljlx.com';
-
 export default () => {
   const right = (
     <Space>
@@ -18,12 +16,8 @@ export default () => {
 
   return (
     <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='基础用法'>
+      <DemoBlock title='更换主题颜色'>
         <Page className={styles.page} title={'Page 页面'} color='primary' back='返回' left='关闭' right={right} />
-      </DemoBlock>
-
-      <DemoBlock title='不显示标题'>
-        <Page className={styles.page} color='primary' back='返回' left='关闭' right={right} />
       </DemoBlock>
     </div>
   );

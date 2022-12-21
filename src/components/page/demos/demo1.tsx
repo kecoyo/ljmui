@@ -6,8 +6,6 @@ import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
 
-const demoSrc = 'https://www.ljlx.com';
-
 export default () => {
   const right = (
     <Space>

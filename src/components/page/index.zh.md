@@ -8,24 +8,29 @@
 
 <code src="./demos/demo2.tsx"></code>
 
-<code src="./demos/demo3.tsx"></code>
-
 ## Page
 
 ### 属性
 
-| 属性    | 说明                                | 类型                                | 默认值 |
-| ------- | ----------------------------------- | ----------------------------------- | ------ |
-| src     | 网页地址                            | `string`                            | -      |
-| onClick | 网页点击事件                        | `(event: React.MouseEvent) => void` | -      |
-| width   | 网页宽度，如果传入数字则单位为 `px` | `string \| number`                  | -      |
-| height  | 网页高度，如果传入数字则单位为 `px` | `string \| number`                  | -      |
-
-`width` `height` 属性其实和 CSS 变量 `--width` `--height` 并不冲突，这些组件属性其实就是基于 CSS 变量实现的，只是 CSS 变量的一种快捷设置方式。
+| 属性      | 说明                                                       | 类型                               | 默认值      |
+| --------- | ---------------------------------------------------------- | ---------------------------------- | ----------- |
+| back      | 返回区域的文字，如果为 `null` 的话，`backArrow` 也不会渲染 | `ReactNode \| null`                | `''`        |
+| backArrow | 是否显示返回区域的箭头，也可以传入 `ReactNode` 进行自定义  | `boolean \| ReactNode`             | `true`      |
+| left      | 左侧内容，渲染在返回区域的右侧                             | `ReactNode`                        | -           |
+| onBack    | 点击返回区域后的回调                                       | `() => void`                       | -           |
+| right     | 右侧内容                                                   | `ReactNode`                        | -           |
+| title     | 标题                                                       | `ReactNode`                        | -           |
+| color     | 标题主题颜色                                               | `'default' \| 'primary' \| string` | `'default'` |
+| children  | 内容                                                       | `ReactNode`                        | -           |
 
 ### CSS 变量
 
-| 属性     | 说明     | 默认值 | 全局变量 |
-| -------- | -------- | ------ | -------- |
-| --height | 网页高度 | `100%` | -        |
-| --width  | 网页宽度 | `100%` | -        |
+| 属性                           | 说明               | 默认值                                    |
+| ------------------------------ | ------------------ | ----------------------------------------- |
+| --nav-bar-height               | 导航栏高度         | `var(--ljm-nav-bar-height)`               |
+| --nav-bar-border-bottom        | 导航栏下边框       | `var(--ljm-nav-bar-border-bottom)`        |
+| --nav-bar-background-color     | 导航栏背景色       | `var(--ljm-nav-bar-background-color)`     |
+| --nav-bar-color                | 导航栏前景色       | `var(--ljm-nav-bar-color)`                |
+| --nav-bar-title-font-size      | 导航栏标题字体大小 | `var(--ljm-nav-bar-title-font-size)`      |
+| --nav-bar-left-right-font-size | 导航栏左右字体大小 | `var(--ljm-nav-bar-left-right-font-size)` |
+| --nav-bar-icon-font-size       | 导航栏图标字体大小 | `var(--ljm-nav-bar-icon-font-size)`       |
