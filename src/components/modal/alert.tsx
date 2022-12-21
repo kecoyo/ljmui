@@ -1,7 +1,13 @@
-import { ModalAlertProps } from 'antd-mobile/es/components/modal';
+import { ReactNode } from 'react';
+import { show } from './show';
+import { ModalProps } from './index';
 import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
 import { getDefaultConfig } from 'antd-mobile/es/components/config-provider';
-import { show } from './show';
+
+export type ModalAlertProps = Omit<ModalProps, 'visible' | 'closeOnAction' | 'actions'> & {
+  confirmText?: ReactNode;
+  onConfirm?: () => void | Promise<void>;
+};
 
 export function _alert(p: ModalAlertProps) {
   const defaultProps = {

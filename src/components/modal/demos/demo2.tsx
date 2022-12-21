@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Space, Toast, Divider } from 'antd-mobile';
+import { Button, Modal, Space, Toast, Divider } from 'ljmui2';
 import { DemoBlock, DemoDescription, lorem } from 'demos';
 import { ExclamationCircleFill } from 'antd-mobile-icons';
-import { Modal } from 'ljmui2';
 
 export default () => {
   return (

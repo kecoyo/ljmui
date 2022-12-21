@@ -1,7 +1,15 @@
-import { ModalConfirmProps } from 'antd-mobile/es/components/modal';
+import { ReactNode } from 'react';
+import { show } from './show';
+import { ModalProps } from './index';
 import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
 import { getDefaultConfig } from 'antd-mobile/es/components/config-provider';
-import { show } from './show';
+
+export type ModalConfirmProps = Omit<ModalProps, 'visible' | 'closeOnAction' | 'actions'> & {
+  confirmText?: ReactNode;
+  cancelText?: ReactNode;
+  onConfirm?: () => void | Promise<void>;
+  onCancel?: () => void | Promise<void>;
+};
 
 const defaultProps = {
   confirmText: '确认',

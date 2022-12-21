@@ -1,7 +1,6 @@
-import React from 'react';
-import { Button } from 'antd-mobile';
+import { Button, Modal } from 'ljmui2';
 import { DemoBlock } from 'demos';
-import { Modal } from 'ljmui2';
+import React from 'react';
 
 export default () => {
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Space, Toast, Divider } from 'antd-mobile';
+import { Button, Modal, Space, Toast, Divider } from 'ljmui2';
 import { DemoBlock, DemoDescription, sleep } from 'demos';
-import { Modal } from 'ljmui2';
 
 export default () => {
   return (
