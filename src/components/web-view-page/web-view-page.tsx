@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
-import { withNativeProps } from 'antd-mobile/es/utils/native-props';
+import { NativeProps, withNativeProps } from 'antd-mobile/es/utils/native-props';
 import Page, { PageProps } from '../page';
 import WebView from '../web-view';
 
@@ -8,7 +8,8 @@ const classPrefix = `ljm-web-view-page`;
 
 export type WebViewPageProps = {
   src: string;
-} & PageProps;
+} & Omit<PageProps, 'children'> &
+  NativeProps;
 
 const defaultProps = {};
 

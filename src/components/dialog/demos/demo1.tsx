@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button, Space, Toast, Divider } from 'antd-mobile';
 import { DemoBlock, DemoDescription, sleep } from 'demos';
-import { Dialog } from 'ljmui2';
+import { Dialog, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+
+window.emitEvent = () => {
+  Event.emit(EVENT_POPUP_CLOSE);
+};
 
 export default () => {
   return (

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Space, Button } from 'antd-mobile';
 import { DemoBlock, lorem } from 'demos';
-import { Popup } from 'ljmui2';
+import { Popup, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+
+window.emitEvent = () => {
+  Event.emit(EVENT_POPUP_CLOSE);
+};
 
 export default () => {
   const [visible1, setVisible1] = useState(false);

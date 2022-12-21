@@ -8,7 +8,7 @@ const defaultProps = {
   cancelText: '取消',
 };
 
-export function confirm(p: ModalConfirmProps) {
+export function _confirm(p: ModalConfirmProps) {
   const { locale } = getDefaultConfig();
   const props = mergeProps(
     defaultProps,
@@ -47,4 +47,19 @@ export function confirm(p: ModalConfirmProps) {
       ],
     });
   });
+}
+
+export function confirm(p1: string | ModalConfirmProps, p2?: string | ModalConfirmProps, p3?: ModalConfirmProps) {
+  let props = {};
+
+  if (typeof p1 === 'string') {
+    if (p1) props = mergeProps(props, { content: p1 });
+    if (p1 && p2 && typeof p2 === 'string') props = mergeProps(props, { title: p1, content: p2 });
+    if (p1 && p2 && typeof p2 !== 'string') props = mergeProps(props, { content: p1 }, p2 || {});
+    if (p1 && p2 && p3) props = mergeProps(props, { title: p1, content: p2 }, p3 || {});
+  } else {
+    props = mergeProps(props, p1 || {});
+  }
+
+  return _confirm({ ...props });
 }
