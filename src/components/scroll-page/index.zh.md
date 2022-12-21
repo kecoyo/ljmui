@@ -1,16 +1,14 @@
-# ScrollView 滚动视图
+# ScrollPage 滚动页面
 
 ## 示例
 
-<!-- <code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
 
-<code src="./demos/demo3.tsx"></code> -->
+<code src="./demos/demo3.tsx"></code>
 
-<code src="./demos/demo4.tsx"></code>
-
-## ScrollView
+## ScrollPage
 
 ### 属性
 

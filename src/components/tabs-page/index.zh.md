@@ -1,7 +1,5 @@
 # TabsPage 网页视图
 
-内容组之间进行导航切换。
-
 ## 示例
 
 <code src="./demos/demo1.tsx"></code>

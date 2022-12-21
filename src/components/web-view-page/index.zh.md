@@ -1,7 +1,5 @@
 # WebViewPage 网页页面
 
-可以内嵌在移动端，实现前端的混合式开发，大多数混合式开发框架都是基于 WebViewPage 模式进行二次开发的。
-
 ## 示例
 
 <code src="./demos/demo1.tsx"></code>

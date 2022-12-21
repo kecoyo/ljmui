@@ -7,6 +7,7 @@ import { pick } from '../../utils/objects';
 
 const classPrefix = `ljm-page`;
 
+export const NATIVE_PROPS = ['className', 'style', 'tabIndex'];
 export const NAV_BAR_PROPS = ['back', 'backArrow', 'onBack', 'left', 'right'];
 export const PAGE_PROPS = [...NAV_BAR_PROPS, 'title', 'color'];
 

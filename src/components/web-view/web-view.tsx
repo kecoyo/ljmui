@@ -9,7 +9,6 @@ const classPrefix = `ljm-web-view`;
 
 export type WebViewProps = {
   src: string;
-  onClick?: (e: React.MouseEvent) => void;
   width?: number | string;
   height?: number | string;
 } & NativeProps<'--width' | '--height'>;
@@ -36,7 +35,6 @@ export const WebView: FC<WebViewProps> = p => {
         [`${classPrefix}-windows`]: isWindows(),
       })}
       style={style}
-      onClick={props.onClick}
     >
       <iframe src={props.src} />
     </div>

@@ -9,6 +9,7 @@ export const components = {
     '/components/web-view',
     '/components/web-view-page',
     '/components/scroll-view',
+    '/components/scroll-page',
     '/components/list-view',
   ],
 };
