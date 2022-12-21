@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Modal, Space, Toast, Divider } from 'ljmui2';
+import { Button, Modal, Space, Toast, Divider, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
 import { DemoBlock, DemoDescription, lorem } from 'demos';
 import { ExclamationCircleFill } from 'antd-mobile-icons';
+
+window.emitEvent = () => {
+  Event.emit(EVENT_POPUP_CLOSE);
+};
 
 export default () => {
   return (

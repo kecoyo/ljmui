@@ -1,6 +1,10 @@
 import React from 'react';
-import { Button, Modal, Space, Toast, Divider } from 'ljmui2';
+import { Button, Modal, Space, Toast, Divider, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
 import { DemoBlock, DemoDescription, sleep } from 'demos';
+
+window.emitEvent = () => {
+  Event.emit(EVENT_POPUP_CLOSE);
+};
 
 export default () => {
   return (

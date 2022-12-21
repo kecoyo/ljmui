@@ -1,3 +1,3 @@
-import { Popup, EVENT_POPUP_CLOSE } from './popup';
+import { Popup } from './popup';
 
-export { Popup as default, EVENT_POPUP_CLOSE };
+export { Popup as default };

@@ -3,9 +3,7 @@ import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
 import AdmPopup, { PopupProps } from 'antd-mobile/es/components/popup';
 import { defaultPopupBaseProps } from 'antd-mobile/es/components/popup/popup-base-props';
 import { useUpdateEffect } from 'ahooks';
-import Event from '../event';
-
-export const EVENT_POPUP_CLOSE = 'event-popup-close';
+import Event, { EVENT_POPUP_CLOSE } from '../event';
 
 const defaultProps = {
   ...defaultPopupBaseProps,

@@ -3,10 +3,11 @@ import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
 import classNames from 'classnames';
 import { Action, ModalActionButton } from './modal-action-button';
 import Image from 'antd-mobile/es/components/image';
-import Space from 'antd-mobile/es/components/space';
 import AutoCenter from 'antd-mobile/es/components/auto-center';
 import { NativeProps } from 'antd-mobile/es/utils/native-props';
 import CenterPopup, { CenterPopupProps } from 'antd-mobile/es/components/center-popup';
+import { useUpdateEffect } from 'ahooks';
+import Event, { EVENT_POPUP_CLOSE } from '../event';
 
 export type ModalProps = Pick<
   CenterPopupProps,
@@ -81,6 +82,16 @@ export const Modal: FC<ModalProps> = p => {
       </div>
     </>
   );
+
+  useUpdateEffect(() => {
+    if (props.onClose) {
+      if (props.visible) {
+        Event.addListener(EVENT_POPUP_CLOSE, props.onClose);
+      } else {
+        Event.removeListener(EVENT_POPUP_CLOSE, props.onClose);
+      }
+    }
+  }, [props.visible]);
 
   return (
     <CenterPopup

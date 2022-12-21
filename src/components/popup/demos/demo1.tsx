@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Space, Button } from 'antd-mobile';
+import { Space, Button, Popup, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
 import { DemoBlock, lorem } from 'demos';
-import { Popup, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
 
 window.emitEvent = () => {
   Event.emit(EVENT_POPUP_CLOSE);

@@ -1,6 +1,8 @@
-import EventEmitter from 'eventemitter3';
+import EventEmitter3 from 'eventemitter3';
 
-export class Event extends EventEmitter {
+export const EVENT_POPUP_CLOSE = 'event-popup-close';
+
+class EventEmitter extends EventEmitter3 {
   // 是否打开调试日志
   debug: boolean = false;
 
@@ -50,3 +52,5 @@ export class Event extends EventEmitter {
     return this;
   }
 }
+
+export const Event = new EventEmitter();

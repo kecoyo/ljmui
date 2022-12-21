@@ -1,6 +1,10 @@
-import { Button, Modal } from 'ljmui2';
+import { Button, Modal, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
 import { DemoBlock } from 'demos';
 import React from 'react';
+
+window.emitEvent = () => {
+  Event.emit(EVENT_POPUP_CLOSE);
+};
 
 export default () => {
   return (
