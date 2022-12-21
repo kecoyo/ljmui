@@ -3,7 +3,6 @@ export const components = {
     '/components/event',
     '/components/popup',
     '/components/modal',
-    '/components/dialog',
     '/components/icon',
     '/components/page',
     '/components/tabs-page',
