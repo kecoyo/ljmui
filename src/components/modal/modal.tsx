@@ -34,6 +34,7 @@ export type ModalProps = Pick<
   closeOnAction?: boolean;
   closeOnMaskClick?: boolean;
   showCloseButton?: boolean;
+  closeOnEvent?: boolean;
 } & NativeProps;
 
 const defaultProps = {
@@ -41,6 +42,7 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: false,
   getContainer: null,
+  closeOnEvent: true,
 };
 
 export const Modal: FC<ModalProps> = p => {
@@ -84,7 +86,7 @@ export const Modal: FC<ModalProps> = p => {
   );
 
   useUpdateEffect(() => {
-    if (props.onClose) {
+    if (props.onClose && props.closeOnEvent) {
       if (props.visible) {
         Event.addListener(EVENT_POPUP_CLOSE, props.onClose);
       } else {
