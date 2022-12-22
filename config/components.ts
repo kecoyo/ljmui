@@ -11,5 +11,6 @@ export const components = {
     '/components/scroll-view',
     '/components/scroll-page',
     '/components/list-view',
+    '/components/progress-modal',
   ],
 };

@@ -16,5 +16,13 @@ export { default as ScrollPage } from './components/scroll-page';
 export type { ScrollPageRef } from './components/scroll-page';
 export { default as ListView } from './components/list-view';
 export type { ListViewRef } from './components/list-view';
+export { default as ProgressModal } from './components/progress-modal';
+export type {
+  ProgressModalProps,
+  ProgressModalShowProps,
+  ProgressModalShowHandler,
+  ProgressModalStartProps,
+  ProgressModalStartHandler,
+} from './components/progress-modal';
 
 export * from './utils';
