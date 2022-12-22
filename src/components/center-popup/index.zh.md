@@ -1,5 +1,7 @@
 # CenterPopup 中间弹出层
 
+继承于antd-mobile中CenterPopup组件，增加接收EVENT_POPUP_CLOSE事件来关闭弹出层。
+
 和 Popup 不同，CenterPopup 是从中间弹出的，Dialog 和 Modal 都是基于它实现的。
 
 ### 示例

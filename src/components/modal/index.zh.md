@@ -1,5 +1,7 @@
 # Modal 弹窗
 
+继承于antd-mobile中Modal组件，增加接收EVENT_POPUP_CLOSE事件来关闭弹窗。
+
 用于重要信息的告知或操作的反馈，并附带少量的选项供用户进行操作。
 
 ## 何时使用

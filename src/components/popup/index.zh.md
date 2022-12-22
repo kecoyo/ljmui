@@ -1,5 +1,7 @@
 # Popup 弹出层
 
+继承于antd-mobile中Popup组件，增加接收EVENT_POPUP_CLOSE事件来关闭弹出层。
+
 从屏幕滑出或弹出一块自定义内容区。
 
 ## 何时使用
