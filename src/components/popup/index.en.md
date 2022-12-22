@@ -45,25 +45,3 @@ multiple pop-up layer overlay display.
 | Name      | Description                    | Default | Global                |
 | --------- | ------------------------------ | ------- | --------------------- |
 | --z-index | `z-index` of the popup element | `1000`  | `--adm-popup-z-index` |
-
-## CenterPopup
-
-CenterPopup does not support the `position` property, and the default value of `getContainer` is `null`, other properties are the same as Popup.
-
-### Demos
-
-<code src="../popup/demos/demo1.tsx"></code>
-
-### Props
-
-The props are the same with Popup expect for `positon`.
-
-### CSS Variables
-
-| Name               | Description                              | Default   | Global                                |
-| ------------------ | ---------------------------------------- | --------- | ------------------------------------- |
-| --background-color | The background color of the popup layer. | `#ffffff` | `--adm-center-popup-background-color` |
-| --border-radius    | The border radius of the popup layer.    | `8px`     | `--adm-center-popup-border-radius`    |
-| --max-width        | The max width of the popup layer.        | `75vw`    | `--adm-center-popup-max-width`        |
-| --min-width        | The min width of the popup layer.        | `280px`   | `--adm-center-popup-min-width`        |
-| --z-index          | `z-index` of the popup element           | `1000`    | `--adm-center-popup-z-index`          |

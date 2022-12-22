@@ -2,6 +2,7 @@ export const components = {
   common: [
     '/components/event',
     '/components/popup',
+    '/components/center-popup',
     '/components/modal',
     '/components/icon',
     '/components/page',

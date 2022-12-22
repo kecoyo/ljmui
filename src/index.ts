@@ -4,6 +4,9 @@ export * from 'antd-mobile';
 
 export { default as Event, EVENT_POPUP_CLOSE } from './components/event';
 export { default as Popup } from './components/popup';
+export type { PopupProps } from './components/popup';
+export { default as CenterPopup } from './components/center-popup';
+export type { CenterPopupProps } from './components/center-popup';
 export { default as Modal } from './components/modal';
 export { default as Icon } from './components/icon';
 export { default as Page } from './components/page';
