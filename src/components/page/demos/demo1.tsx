@@ -1,7 +1,6 @@
 import React from 'react';
-import { Space } from 'antd-mobile';
+import { Page, Space } from 'ljmui2';
 import { SearchOutline, MoreOutline, CloseOutline } from 'antd-mobile-icons';
-import { Page } from 'ljmui2';
 import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
@@ -16,14 +15,8 @@ export default () => {
   );
 
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='基础用法'>
-        <Page className={styles.page} title={'Page 页面'} back='返回' left='关闭' right={right} />
-      </DemoBlock>
-
-      <DemoBlock title='不显示标题'>
-        <Page className={styles.page} back='返回' left='关闭' right={right} />
-      </DemoBlock>
-    </div>
+    <Page className={styles.page} title='基础用法' back='返回' left='关闭' right={right}>
+      <DemoBlock title='基础用法'></DemoBlock>
+    </Page>
   );
 };

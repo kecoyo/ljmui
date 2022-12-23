@@ -14,8 +14,8 @@ export default () => {
   );
 
   return (
-    <Page className={styles.page} back='返回' left='关闭' right={right}>
-      <DemoBlock title='不显示标题'></DemoBlock>
+    <Page className={styles.page} title='更换主题颜色' color='primary' back='返回' left='关闭' right={right}>
+      <DemoBlock title='更换主题颜色'></DemoBlock>
     </Page>
   );
 };
