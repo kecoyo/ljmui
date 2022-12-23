@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Space, Toast } from 'antd-mobile';
+import { Button, Space, Toast, Event, Page } from 'ljmui2';
 import { DemoBlock } from 'demos';
-import { Event } from 'ljmui2';
+
+import styles from './demo1.less';
 
 const handleEvent = () => {
   Toast.show('触发了事件：event1');
@@ -122,7 +123,7 @@ function CloseDebug() {
 
 export default () => {
   return (
-    <>
+    <Page title='基础用法'>
       <DemoBlock title='基础用法'>
         <Space wrap>
           <AddListener />
@@ -146,6 +147,6 @@ export default () => {
           <CloseDebug />
         </Space>
       </DemoBlock>
-    </>
+    </Page>
   );
 };

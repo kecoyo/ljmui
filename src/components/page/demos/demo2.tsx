@@ -14,7 +14,7 @@ export default () => {
   );
 
   return (
-    <Page className={styles.page} back='返回' left='关闭' right={right}>
+    <Page back='返回' left='关闭' right={right}>
       <DemoBlock title='不显示标题'></DemoBlock>
     </Page>
   );

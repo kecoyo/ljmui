@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, Space, Toast, Divider, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+import { ScrollPage, Button, Modal, Space, Toast, Divider, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
 import { DemoBlock, DemoDescription, lorem } from 'demos';
 import { ExclamationCircleFill } from 'antd-mobile-icons';
 
@@ -9,7 +9,7 @@ window.emitEvent = () => {
 
 export default () => {
   return (
-    <>
+    <ScrollPage title='内容区域'>
       <DemoBlock title='内容区域'>
         <Space direction='vertical' block>
           <Button
@@ -63,6 +63,7 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='获取点击结果'>
         <Space direction='vertical' block>
           <Button
@@ -103,7 +104,7 @@ export default () => {
           <DemoDescription content='你可以手动控制 visible 状态' />
         </Space>
       </DemoBlock>
-    </>
+    </ScrollPage>
   );
 };
 

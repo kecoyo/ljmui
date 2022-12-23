@@ -14,7 +14,7 @@ export default () => {
   );
 
   return (
-    <Page className={styles.page} title='更换主题颜色' color='primary' back='返回' left='关闭' right={right}>
+    <Page title='更换主题颜色' color='primary' back='返回' left='关闭' right={right}>
       <DemoBlock title='更换主题颜色'></DemoBlock>
     </Page>
   );

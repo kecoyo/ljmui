@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'ljmui2';
+import { Page, ScrollView } from 'ljmui2';
 import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
@@ -15,18 +15,16 @@ export const getList = (len = 100) => {
 export default () => {
   const list: Array<number> = getList(100);
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='横向布局'>
-        <ScrollView className={styles.scrollview2} direction='horizontal'>
-          <div style={{ display: 'flex', height: '100%' }}>
-            {list.map((num, i) => (
-              <div key={num} className={styles.item2}>
-                {num}
-              </div>
-            ))}
-          </div>
-        </ScrollView>
-      </DemoBlock>
-    </div>
+    <Page title='横向布局'>
+      <ScrollView className={styles.scrollview2} direction='horizontal'>
+        <div style={{ display: 'flex', height: '100%' }}>
+          {list.map((num, i) => (
+            <div key={num} className={styles.item2}>
+              {num}
+            </div>
+          ))}
+        </div>
+      </ScrollView>
+    </Page>
   );
 };

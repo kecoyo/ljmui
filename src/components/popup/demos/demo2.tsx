@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Space, Button, Popup, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+import { Space, Button, Popup, Event, EVENT_POPUP_CLOSE, Page } from 'ljmui2';
 import { DemoBlock } from 'demos';
 
 window.emitEvent = () => {
@@ -11,7 +11,7 @@ export default () => {
   const [visible2, setVisible2] = useState(false);
 
   return (
-    <>
+    <Page title='基础用法'>
       <DemoBlock title='多层堆叠'>
         <Button
           onClick={() => {
@@ -52,6 +52,6 @@ export default () => {
           </div>
         </Popup>
       </DemoBlock>
-    </>
+    </Page>
   );
 };

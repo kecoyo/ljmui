@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollPage, List, Image } from 'ljmui2';
+import { ScrollPage, List, Image, Page } from 'ljmui2';
 import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
@@ -17,22 +17,18 @@ for (let i = 0; i < 20; i++) {
 
 export default () => {
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='基础用法'>
-        <ScrollPage className={styles.scrollPage} title={'ScrollPage'}>
-          <List header='用户列表'>
-            {users.map((user, index) => (
-              <List.Item
-                key={user.name}
-                prefix={<Image src={user.avatar} style={{ borderRadius: 20 }} fit='cover' width={40} height={40} />}
-                description={user.description}
-              >
-                {user.name}
-              </List.Item>
-            ))}
-          </List>
-        </ScrollPage>
-      </DemoBlock>
-    </div>
+    <ScrollPage title='基础用法'>
+      <List header='用户列表'>
+        {users.map((user, index) => (
+          <List.Item
+            key={user.name}
+            prefix={<Image src={user.avatar} style={{ borderRadius: 20 }} fit='cover' width={40} height={40} />}
+            description={user.description}
+          >
+            {user.name}
+          </List.Item>
+        ))}
+      </List>
+    </ScrollPage>
   );
 };

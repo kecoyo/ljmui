@@ -7,11 +7,5 @@ import styles from './demo1.less';
 const url = 'https://www.ljlx.com/ljlx/public/userprivacy.html';
 
 export default () => {
-  return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='基础用法'>
-        <WebViewPage className={styles.page} title='乐教乐学' src={url} />
-      </DemoBlock>
-    </div>
-  );
+  return <WebViewPage title='基础用法' src={url} />;
 };

@@ -26,22 +26,18 @@ export default () => {
   });
 
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='记录滚动位置'>
-        <ScrollPage className={styles.scrollPage} title={'ScrollPage'} startY={startY} onScroll={onScroll}>
-          <List header='用户列表'>
-            {users.map((user, index) => (
-              <List.Item
-                key={user.name}
-                prefix={<Image src={user.avatar} style={{ borderRadius: 20 }} fit='cover' width={40} height={40} />}
-                description={user.description}
-              >
-                {user.name}
-              </List.Item>
-            ))}
-          </List>
-        </ScrollPage>
-      </DemoBlock>
-    </div>
+    <ScrollPage title='记录滚动位置' startY={startY} onScroll={onScroll}>
+      <List header='用户列表'>
+        {users.map((user, index) => (
+          <List.Item
+            key={user.name}
+            prefix={<Image src={user.avatar} style={{ borderRadius: 20 }} fit='cover' width={40} height={40} />}
+            description={user.description}
+          >
+            {user.name}
+          </List.Item>
+        ))}
+      </List>
+    </ScrollPage>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, Space, Toast, Divider, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+import { Button, Modal, Space, Toast, Divider, Event, EVENT_POPUP_CLOSE, ScrollPage } from 'ljmui2';
 import { DemoBlock, DemoDescription, sleep } from 'demos';
 
 window.emitEvent = () => {
@@ -8,7 +8,7 @@ window.emitEvent = () => {
 
 export default () => {
   return (
-    <>
+    <ScrollPage title='基础用法'>
       <DemoBlock title='基础用法'>
         <Space direction='vertical' block>
           <Button
@@ -62,15 +62,18 @@ export default () => {
                   {
                     key: 'online',
                     text: '在线阅读',
-                    primary: true,
+                    danger: true,
+                    block: true,
                   },
                   {
                     key: 'download',
                     text: '下载文件',
+                    block: true,
                   },
                   {
                     key: 'share',
                     text: '分享',
+                    block: true,
                   },
                 ],
               });
@@ -132,6 +135,6 @@ export default () => {
           <DemoDescription>当你不设置操作按钮时，可以把 Modal 当作一个普通的弹层来使用</DemoDescription>
         </Space>
       </DemoBlock>
-    </>
+    </ScrollPage>
   );
 };

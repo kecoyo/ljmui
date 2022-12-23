@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ScrollView, ScrollViewRef } from 'ljmui2';
+import { Page, ScrollView, ScrollViewRef } from 'ljmui2';
 import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
@@ -32,18 +32,16 @@ export default () => {
   };
 
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='滚动事件'>
-        <ScrollView ref={ref} className={styles.scrollview} onScroll={handleScroll}>
-          <div>
-            {list.map((num, i) => (
-              <div key={num} className={styles.item}>
-                {num}
-              </div>
-            ))}
-          </div>
-        </ScrollView>
-      </DemoBlock>
-    </div>
+    <Page title='滚动事件'>
+      <ScrollView ref={ref} onScroll={handleScroll}>
+        <div>
+          {list.map((num, i) => (
+            <div key={num} className={styles.item}>
+              {num}
+            </div>
+          ))}
+        </div>
+      </ScrollView>
+    </Page>
   );
 };

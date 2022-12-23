@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Space, Toast, Divider, Modal, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+import { Button, Space, Toast, Divider, Modal, Event, EVENT_POPUP_CLOSE, ScrollPage } from 'ljmui2';
 import { DemoBlock, DemoDescription, sleep } from 'demos';
 
 window.emitEvent = () => {
@@ -8,7 +8,7 @@ window.emitEvent = () => {
 
 export default () => {
   return (
-    <>
+    <ScrollPage title='简单用法'>
       <DemoBlock title='Modal.alert'>
         <Space direction='vertical' block>
           <Button block onClick={() => Modal.alert('人在天边月上明')}>
@@ -42,6 +42,6 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
-    </>
+    </ScrollPage>
   );
 };

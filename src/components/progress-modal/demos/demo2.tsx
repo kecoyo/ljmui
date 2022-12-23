@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ProgressModal, ProgressModalStartHandler } from 'ljmui2';
+import { Button, Page, ProgressModal, ProgressModalStartHandler } from 'ljmui2';
 import { DemoBlock } from 'demos';
 
 import styles from './demo1.less';
@@ -17,12 +17,12 @@ export default () => {
   };
 
   return (
-    <div style={{ userSelect: 'none' }}>
+    <Page title='自动进度'>
       <DemoBlock title='自动进度'>
         <Button color='primary' onClick={handleOpen}>
           打开进度弹窗
         </Button>
       </DemoBlock>
-    </div>
+    </Page>
   );
 };

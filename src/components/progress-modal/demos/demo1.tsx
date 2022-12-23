@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ProgressModal, ProgressModalShowHandler, sleep, Event, EVENT_POPUP_CLOSE } from 'ljmui2';
+import { Button, ProgressModal, ProgressModalShowHandler, sleep, Event, EVENT_POPUP_CLOSE, Page } from 'ljmui2';
 import { DemoBlock } from 'demos';
 import { useMemoizedFn } from 'ahooks';
 
@@ -29,17 +29,17 @@ export default () => {
       }
     }
 
-    await sleep(1000);
-    handler.close();
+    // await sleep(1000);
+    // handler.close();
   });
 
   return (
-    <div style={{ userSelect: 'none' }}>
+    <Page title='基础用法'>
       <DemoBlock title='基础用法'>
         <Button color='primary' onClick={handleOpen}>
           打开进度弹窗
         </Button>
       </DemoBlock>
-    </div>
+    </Page>
   );
 };

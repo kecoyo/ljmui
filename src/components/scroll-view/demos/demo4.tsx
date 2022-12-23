@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ScrollView, ScrollViewRef } from 'ljmui2';
+import { Page, ScrollView, ScrollViewRef } from 'ljmui2';
 import { DemoBlock } from 'demos';
 import { useMemoizedFn, useMount } from 'ahooks';
 
@@ -67,25 +67,23 @@ export default () => {
   });
 
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='下拉刷新/上拉加载'>
-        <ScrollView
-          ref={ref}
-          className={styles.scrollview}
-          onScroll={onScroll}
-          onPullDownRefresh={onPullDownRefresh}
-          onPullUpLoad={onPullUpLoad}
-          hasMore={hasMore}
-          loading={loading}
-          isEmpty={list.length === 0}
-        >
-          {list.map((item, i) => (
-            <div key={i} className={styles.item}>
-              {item.id}.{item.name}
-            </div>
-          ))}
-        </ScrollView>
-      </DemoBlock>
-    </div>
+    <Page title='下拉刷新/上拉加载'>
+      <ScrollView
+        ref={ref}
+        className={styles.scrollview}
+        onScroll={onScroll}
+        onPullDownRefresh={onPullDownRefresh}
+        onPullUpLoad={onPullUpLoad}
+        hasMore={hasMore}
+        loading={loading}
+        isEmpty={list.length === 0}
+      >
+        {list.map((item, i) => (
+          <div key={i} className={styles.item}>
+            {item.id}.{item.name}
+          </div>
+        ))}
+      </ScrollView>
+    </Page>
   );
 };

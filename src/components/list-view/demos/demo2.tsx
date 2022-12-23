@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ListView, ListViewRef } from 'ljmui2';
+import { ListView, ListViewRef, Page } from 'ljmui2';
 import { DemoBlock } from 'demos';
 import { useMemoizedFn, useMount } from 'ahooks';
 
@@ -55,7 +55,7 @@ export default () => {
   };
 
   return (
-    <div style={{ userSelect: 'none' }}>
+    <Page title='下拉刷新/上拉加载'>
       <DemoBlock title='下拉刷新/上拉加载'>
         <ListView
           ref={ref} //
@@ -70,6 +70,6 @@ export default () => {
           hasMore={hasMore}
         />
       </DemoBlock>
-    </div>
+    </Page>
   );
 };

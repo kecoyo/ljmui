@@ -66,30 +66,26 @@ export default () => {
   });
 
   return (
-    <div style={{ userSelect: 'none' }}>
-      <DemoBlock title='下拉刷新/上拉加载'>
-        <ScrollPage
-          className={styles.scrollPage}
-          title={'ScrollPage'}
-          loading={loading}
-          onPullDownRefresh={onPullDownRefresh}
-          onPullUpLoad={onPullUpLoad}
-          hasMore={hasMore}
-          isEmpty={list.length === 0}
-        >
-          <List header='用户列表'>
-            {list.map((user, index) => (
-              <List.Item
-                key={user.name}
-                prefix={<Image src={user.avatar} style={{ borderRadius: 20 }} fit='cover' width={40} height={40} />}
-                description={user.description}
-              >
-                {user.name}
-              </List.Item>
-            ))}
-          </List>
-        </ScrollPage>
-      </DemoBlock>
-    </div>
+    <ScrollPage
+      className={styles.scrollPage}
+      title='下拉刷新/上拉加载'
+      loading={loading}
+      onPullDownRefresh={onPullDownRefresh}
+      onPullUpLoad={onPullUpLoad}
+      hasMore={hasMore}
+      isEmpty={list.length === 0}
+    >
+      <List header='用户列表'>
+        {list.map((user, index) => (
+          <List.Item
+            key={user.name}
+            prefix={<Image src={user.avatar} style={{ borderRadius: 20 }} fit='cover' width={40} height={40} />}
+            description={user.description}
+          >
+            {user.name}
+          </List.Item>
+        ))}
+      </List>
+    </ScrollPage>
   );
 };
