@@ -47,7 +47,7 @@ export function _confirm(p: ModalConfirmProps) {
           {
             key: 'confirm',
             text: props.confirmText,
-            bold: true,
+            primary: true,
             onClick: async () => {
               await props.onConfirm?.();
               resolve(true);
