@@ -29,8 +29,8 @@ export default () => {
       }
     }
 
-    // await sleep(1000);
-    // handler.close();
+    await sleep(1000);
+    handler.close();
   });
 
   return (
