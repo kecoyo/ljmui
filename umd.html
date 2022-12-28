@@ -11,18 +11,18 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="./lib/bundle/ljmui2.umd.js"></script>
-    <link rel="stylesheet" href="./lib/bundle/style.css" />
+    <script src="./dist/bundle/ljmui2.umd.js"></script>
+    <link rel="stylesheet" href="./dist/bundle/style.css" />
 
     <script type="text/babel">
-      const { Button, ErrorBlock } = window.antdMobile;
+      const { Button, ErrorBlock } = window.antdMobile
       ReactDOM.render(
         <div>
           <Button color='primary'>123</Button>
           <ErrorBlock />
         </div>,
         document.getElementById('root')
-      );
+      )
     </script>
   </body>
 </html>

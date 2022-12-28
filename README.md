@@ -1,17 +1,12 @@
 <div align="center">
 
   <img src="https://gw.alipayobjects.com/zos/bmw-prod/b2c7ff8b-eba0-4af9-9dd5-0b5b17f42c57.svg" alt="logo" width="200" height="auto" />
-  <h1>ljmui2</h1>
+  <h1>LJMui2</h1>
 
   <p>
     Essential UI blocks for building mobile web apps. 
   </p>
 
-  <h4>
-    <a href="https://mobile.ant.design">English Doc</a>
-  <span> · </span>
-    <a href="https://mobile.ant.design/zh">中文文档</a>
-  </h4>
 </div>
 
 ```bash
@@ -20,23 +15,15 @@ $ npm install --save ljmui2
 $ yarn add ljmui2
 ```
 
-- **Fast**: It is carefully optimized for harsh scenes, without configuration, you can have the best package size and
-  ultimate performance.
-- **Customizable**: Based on CSS variables, you can reliably and efficiently adjust the appearance of components or
-  create your own themes.
+- **Fast**: It is carefully optimized for harsh scenes, without configuration, you can have the best package size and ultimate performance.
+- **Customizable**: Based on CSS variables, you can reliably and efficiently adjust the appearance of components or create your own themes.
 - **Atomic**: The function of each component, neither more nor less, is exactly what you need.
 - **Fluent**: With smooth gestures and delicate animation, it helps the product create the ultimate experience.
 
-You can also play with ljmui2 just in browser
-with [Codesandbox](https://codesandbox.io/s/ljmui2-snrxr?file=/package.json). No need to prepare development
-environment.
+You can also play with ljmui2 just in browser with [Codesandbox](https://codesandbox.io/s/ljmui2-snrxr?file=/package.json). No need to prepare development environment.
 
-If you found bugs or would like to request some new features, please consider opening
-an [issue](https://github.com/ant-design/ant-design-mobile/issues/new).
+If you found bugs or would like to request some new features, please consider opening an [issue](https://github.com/ant-design/ant-design-mobile/issues/new).
 
-If you have some question about how to use ant-mobile, you can start
-a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
+If you have some question about how to use ant-mobile, you can start a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
 
 ---
-
-Thanks to all the contributors of ljmui2:

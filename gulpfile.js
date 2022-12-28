@@ -16,10 +16,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const tsconfig = require('./tsconfig.json');
 const packageJson = require('./package.json');
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default;
-const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 });
 
 function clean() {
-  return del(['./es/**', './cjs/**', './umd/**']);
+  return del('./dist/**');
 }
 
 function buildStyle() {
@@ -41,26 +40,23 @@ function buildStyle() {
         }),
       ])
     )
-    .pipe(gulp.dest('./es'))
-    .pipe(gulp.dest('./cjs'));
+    .pipe(gulp.dest('./dist/es'))
+    .pipe(gulp.dest('./dist/cjs'));
 }
 
 function copyAssets() {
-  return gulp //
-    .src('./src/assets/**/*')
-    .pipe(gulp.dest('./es/assets'))
-    .pipe(gulp.dest('./cjs/assets'));
+  return gulp.src('./src/assets/**/*').pipe(gulp.dest('dist/assets')).pipe(gulp.dest('dist/es/assets')).pipe(gulp.dest('dist/cjs/assets'));
 }
 
 function buildCJS() {
   return gulp
-    .src(['./es/**/*.js'])
+    .src(['dist/es/**/*.js'])
     .pipe(
       babel({
         'plugins': ['@babel/plugin-transform-modules-commonjs'],
       })
     )
-    .pipe(gulp.dest('./cjs/'));
+    .pipe(gulp.dest('dist/cjs/'));
 }
 
 function buildES() {
@@ -69,7 +65,7 @@ function buildES() {
     module: 'ES6',
   });
   return gulp
-    .src(['src/**/*.{js,jsx,ts,tsx}'], {
+    .src(['src/**/*.{ts,tsx}'], {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
@@ -78,12 +74,19 @@ function buildES() {
         'plugins': ['./babel-transform-less-to-css'],
       })
     )
-    .pipe(gulp.dest('./es/'));
+    .pipe(gulp.dest('dist/es/'));
 }
 
 function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
+    paths: {
+      ...tsconfig.compilerOptions.paths,
+      'react': ['node_modules/@types/react'],
+      'rc-field-form': ['node_modules/rc-field-form'],
+      '@react-spring/web': ['node_modules/@react-spring/web'],
+      '@use-gesture/react': ['node_modules/@use-gesture/react'],
+    },
     module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
@@ -93,8 +96,8 @@ function buildDeclaration() {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
-    .pipe(gulp.dest('./es/'))
-    .pipe(gulp.dest('./cjs/'));
+    .pipe(gulp.dest('dist/es/'))
+    .pipe(gulp.dest('dist/cjs/'));
 }
 
 function getViteConfigForPackage({ env, formats, external }) {
@@ -113,14 +116,14 @@ function getViteConfigForPackage({ env, formats, external }) {
       cssTarget: 'chrome61',
       lib: {
         name: 'ljmui2',
-        entry: './es/index.js',
+        entry: './dist/es/index.js',
         formats,
         fileName: format => `${name}.${format}${isProd ? '' : `.${env}`}.js`,
       },
       rollupOptions: {
         external,
         output: {
-          dir: './bundle',
+          dir: './dist/bundle',
           // exports: 'named',
           globals: {
             'react': 'React',
@@ -149,7 +152,7 @@ async function buildBundles(cb) {
 
 function umdWebpack() {
   return gulp
-    .src('./es/index.js')
+    .src('dist/es/index.js')
     .pipe(
       webpackStream(
         {
@@ -237,20 +240,50 @@ function umdWebpack() {
         webpack
       )
     )
-    .pipe(gulp.dest('./umd/'));
+    .pipe(gulp.dest('dist/umd/'));
 }
 
 function copyUmd() {
-  return gulp.src(['./umd/ljmui2.js']).pipe(rename('ljmui2.compatible.umd.js')).pipe(gulp.dest('./bundle/'));
+  return gulp.src(['dist/umd/ljmui2.js']).pipe(rename('ljmui2.compatible.umd.js')).pipe(gulp.dest('dist/bundle/'));
 }
 
+function copyMetaFiles() {
+  return gulp.src(['./README.md', './LICENSE.txt']).pipe(gulp.dest('./dist/'));
+}
+
+function generatePackageJSON() {
+  return gulp
+    .src('./package.json')
+    .pipe(
+      through.obj((file, enc, cb) => {
+        const rawJSON = file.contents.toString();
+        const parsed = JSON.parse(rawJSON);
+        delete parsed.scripts;
+        delete parsed.devDependencies;
+        delete parsed.publishConfig;
+        delete parsed.files;
+        delete parsed.resolutions;
+        delete parsed.packageManager;
+        const stringified = JSON.stringify(parsed, null, 2);
+        file.contents = Buffer.from(stringified);
+        cb(null, file);
+      })
+    )
+    .pipe(gulp.dest('./dist/'));
+}
+
+exports.umdWebpack = umdWebpack;
+exports.buildBundles = buildBundles;
+
 exports.default = gulp.series(
-  clean, //
+  clean,
   buildES,
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
-  // buildBundles,
-  // umdWebpack,
-  // copyUmd
+  copyMetaFiles,
+  generatePackageJSON,
+  buildBundles,
+  umdWebpack,
+  copyUmd
 );

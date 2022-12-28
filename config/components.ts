@@ -1,17 +1,21 @@
 export const components = {
   common: [
-    '/components/event',
-    '/components/popup',
+    '/components/event', //
+  ],
+  antdMobile: [
+    '/components/popup', //
     '/components/center-popup',
     '/components/modal',
-    '/components/icon',
-    '/components/page',
+  ],
+  layout: [
+    '/components/page', //
     '/components/tabs-page',
     '/components/web-view',
     '/components/web-view-page',
     '/components/scroll-view',
     '/components/scroll-page',
     '/components/list-view',
+    '/components/icon',
     '/components/progress-modal',
   ],
 };

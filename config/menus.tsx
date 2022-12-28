@@ -1,13 +1,7 @@
-import { components } from './components'
+import { components } from './components';
 
 export const menus = {
   '/': [
-    {
-      title: 'Home',
-      path: 'index',
-    },
-  ],
-  '/zh': [
     {
       title: '首页',
       path: 'index',
@@ -15,43 +9,26 @@ export const menus = {
   ],
   '/guide': [
     {
-      title: 'Quick Start',
+      title: '快速上手',
       path: '/guide/quick-start',
     },
     {
-      title: 'FAQ',
-      path: '/guide/faq',
-    },
-  ],
-  '/zh/guide': [
-    {
-      title: '快速上手',
-      path: '/zh/guide/quick-start',
-    },
-    {
       title: '常见问题',
-      path: '/zh/guide/faq',
+      path: '/guide/faq',
     },
   ],
   '/components': [
     {
-      title: 'Common',
-      children: components.common,
-    },
-    // {
-    //   title: 'Layout',
-    //   children: components.layout,
-    // },
-
-  ],
-  '/zh/components': [
-    {
       title: '通用',
       children: components.common,
     },
-    // {
-    //   title: '布局',
-    //   children: components.layout,
-    // },
+    {
+      title: 'antd-mobile',
+      children: components.antdMobile,
+    },
+    {
+      title: '布局',
+      children: components.layout,
+    },
   ],
-}
+};

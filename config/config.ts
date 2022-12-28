@@ -1,22 +1,21 @@
-import { IConfig } from 'dumi'
-import { menus } from './menus'
-import { navs } from './navs'
+import { IConfig } from 'dumi';
+import { menus } from './menus';
+import { navs } from './navs';
 
-const shouldDisableCSSVar = Boolean(process.env.DISABLE_CSS_VAR)
+const shouldDisableCSSVar = Boolean(process.env.DISABLE_CSS_VAR);
 
 if (shouldDisableCSSVar) {
-  console.info('\nCSS Variables has been disabled for dev purpose.\n')
+  console.info('\nCSS Variables has been disabled for dev purpose.\n');
 }
 
-const pxToRem = require('postcss-pxtorem')
-const postcssDisableCSSVars = require('../scripts/postcss-disable-css-vars.js')
+const pxToRem = require('postcss-pxtorem');
+const postcssDisableCSSVars = require('../scripts/postcss-disable-css-vars.js');
 
 const config: IConfig = {
   mode: 'site',
-  title: 'ljmui2',
+  title: 'LJMui2',
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/b874caa9-4458-412a-9ac6-a61486180a62.svg',
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/69a27fcc-ce52-4f27-83f1-c44541e9b65d.svg',
-  outputPath: 'docs-dist',
   navs,
   menus,
   resolve: {
@@ -24,16 +23,13 @@ const config: IConfig = {
     passivePreview: true,
   },
   alias: {
-    'ljmui2': process.cwd() + '/src',
-    'ljmui2/src': process.cwd() + '/src',
     'ljmui2/es': process.cwd() + '/src',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
   metas: [
     {
       name: 'viewport',
-      content:
-        'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
+      content: 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
     },
     {
       name: 'keywords',
@@ -69,10 +65,6 @@ const config: IConfig = {
       async: true,
     },
   ],
-  locales: [
-    ['en', 'English'],
-    ['zh', '中文'],
-  ],
   extraPostCSSPlugins: [
     // pxToRem({
     //   rootValue: 50,
@@ -91,6 +83,6 @@ const config: IConfig = {
   // ssr: {},
   exportStatic: {},
   dynamicImport: {},
-}
+};
 
-export default config
+export default config;

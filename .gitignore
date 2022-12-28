@@ -11,13 +11,11 @@
 /report.html
 
 # build
-/docs-dist/
 /dist/
 /lib/
 /es/
 /cjs/
 /umd/
-/bundle/
 
 # dumi assets meta data
 /assets.json
